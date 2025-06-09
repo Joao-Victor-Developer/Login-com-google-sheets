@@ -1,0 +1,127 @@
+/* Reset e base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fundos animados */
+.bg-row {
+  position: absolute;
+  width: 200%;
+  height: 50%;
+  display: flex;
+  z-index: 0;
+}
+
+.bg-top {
+  top: 0;
+  left: 0;
+  animation: scrollLeft 40s linear infinite;
+}
+
+.bg-bottom {
+  bottom: 0;
+  right: 0;
+  animation: scrollRight 40s linear infinite;
+}
+
+.bg-row img {
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+/* Camada amarela translúcida */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(252, 227, 0, 0.55);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Container do formulário */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  z-index: 5;
+  position: relative;
+}
+
+h1 {
+  color: #222;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 15px 30px;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+input {
+  display: block;
+  width: 250px;
+  margin: 0 auto 12px auto;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #999;
+  border-radius: 6px;
+  transition: border 0.3s;
+  z-index: 5;
+  position: relative;
+}
+
+input:focus {
+  border-color: #222;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #222;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 5;
+  position: relative;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+#msg {
+  margin-top: 15px;
+  color: red;
+  font-size: 14px;
+  z-index: 5;
+  position: relative;
+}
